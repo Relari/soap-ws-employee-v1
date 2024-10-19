@@ -1,0 +1,80 @@
+<xs:schema
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:tns="http://github.com/Relari"
+		targetNamespace="http://github.com/Relari"
+		elementFormDefault="qualified">
+
+	<xs:element name="employeeRequest">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firstName" type="xs:string"/>
+				<xs:element name="fatherLastName" type="xs:string"/>
+				<xs:element name="motherLastName" type="xs:string"/>
+				<xs:element name="gender" type="xs:string"/>
+				<xs:element name="birthdate" type="xs:string"/>
+				<xs:element name="documentType" type="xs:string"/>
+				<xs:element name="documentNumber" type="xs:string"/>
+				<xs:element name="contactInfo" type="tns:contactInfo"/>
+				<xs:element name="company" type="tns:company"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="employeeResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="firstName" type="xs:string"/>
+				<xs:element name="fatherLastName" type="xs:string"/>
+				<xs:element name="motherLastName" type="xs:string"/>
+				<xs:element name="gender" type="xs:string"/>
+				<xs:element name="birthdate" type="xs:string"/>
+				<xs:element name="documentType" type="xs:string"/>
+				<xs:element name="documentNumber" type="xs:string"/>
+				<xs:element name="contactInfo" type="tns:contactInfo"/>
+				<xs:element name="company" type="tns:company"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="contactInfo">
+		<xs:sequence>
+			<xs:element name="email" type="xs:string"/>
+			<xs:element name="phoneNumber" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="company">
+		<xs:sequence>
+			<xs:element name="jobTitle" type="xs:string"/>
+			<xs:element name="salary" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:simpleType name="documentType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="DNI"/>
+			<xs:enumeration value="PASAPORTE"/>
+			<xs:enumeration value="CARNET_DE_EXTRANJERIA"/>
+			<xs:enumeration value="RUC"/>
+			<xs:enumeration value="PARTIDA_DE_NACIMIENTO"/>
+			<xs:enumeration value="OTROS"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="gender">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="F"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="jobTitle">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SCRUM_MASTER"/>
+			<xs:enumeration value="TEAM_LEAD"/>
+			<xs:enumeration value="DEVELOPER"/>
+			<xs:enumeration value="MANAGER"/>
+			<xs:enumeration value="ARCHITECT"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
